@@ -177,8 +177,4 @@ $(function () {
   Rees.buildPie();
 
 
-  $('#show-today-orders').on('click', function () {
-    Rees.buildDiagram('day', moment(new Date()));
-  })
-
 });
