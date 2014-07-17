@@ -1,0 +1,190 @@
+#wrap-all
+  / Шапка
+  header
+    #navbar
+      .container
+        .row-fluid
+          .span4
+            #logo
+
+          .span8
+
+            .pull-right.right-bar
+              span.config
+              span Админка
+              span Выйти
+
+
+  / Основной контент
+  #main-content
+    .container
+
+      / Блок с графиками
+      .blue-block#graphics-container
+        .row-fluid
+          .span4#sales
+            .block-header
+              .table-cell
+              .table-cell.center
+                span.title ОТНОШЕНИЯ ОБЪЕМОВ ПРОДАЖ
+              .table-cell
+            hr
+
+            .diagrams
+              #day
+              #week
+              #month
+            .clearfix
+
+            .grey-text.mini-text.margin-top-25.padding-left-15.roboto На графиках отображаются прирост продаж за счет внедрения модуля Rees46
+
+          .span8#effect
+            .block-header
+              .table-cell
+              .table-cell.center
+                span.title ТЕКУЩАЯ ЭФФЕКТИВНОСТЬ
+              .table-cell
+                div class="dropdown"
+                  button class="btn btn-default dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" За 2 недели
+                  span class="caret"
+                  ul class="dropdown-menu" role="menu" aria-labelledby="dropdownMenu1"
+                    li role="presentation"
+                      a role="menuitem" tabindex="-1" href="javascript: void(0);" За месяц
+                      a role="menuitem" tabindex="-1" href="javascript: void(0);" За год
+            hr
+
+            #graphik_blue
+
+      / Футер под графиками
+      .navy-block
+        span.one.grey-text.mini-text.roboto &#8211; обычная продажа
+        span.two.grey-text.mini-text.roboto &#8211; продажа по рекомендациям
+        span.three.grey-text.mini-text.roboto &#8211; обычная продажа
+
+      .margin-top-40
+
+      / 2 Колонки
+      .row-fluid
+        .span4.left-col
+
+          / Блок A/B ТЕСТ
+          .row-fluid
+            .blue-block#a-b-test.span6
+              .block-header
+                .table-cell
+                .table-cell.center
+                  span.title A/B ТЕСТ
+                .table-cell
+                  div class="dropdown"
+                    button class="btn btn-default dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" Статус
+                    span class="caret"
+                    ul class="dropdown-menu" role="menu" aria-labelledby="dropdownMenu1"
+                      li role="presentation"
+                        a#switch-on role="menuitem" tabindex="-1" href="javascript: void(0);" Включен
+                        a#switch-off role="menuitem" tabindex="-1" href="javascript: void(0);" Выключен
+              hr
+              .row-fluid
+                .wrap-auto
+                  .span4#with-swither
+                    .grey-text.mini-text.active.roboto Включен
+                    #back
+                      #round.on
+                    .grey-text.mini-text.roboto Выключен
+                  .span8#spent-time.bigger-font
+                    span.days 1Д
+                    span.time 23:18
+
+            / Блок Конверсия
+            .blue-block#conversion.span6
+              .block-header
+                .table-cell
+                .table-cell.center
+                  span.title Конверсия
+                .table-cell
+              hr
+              .wrap-auto
+                span.digit 3.0
+                span.text.grey-text.mini-text Стандартная конверсия
+                .clearfix.margin-top-30
+                span.digit.big 3.6
+                span.text.grey-text.mini-text.big Достигнуто с REES46
+
+            / Блок Средний чек
+            .blue-block#average.span6
+              .block-header
+                .table-cell
+                .table-cell.center
+                  span.title Средний чек
+                .table-cell
+              hr
+              .wrap-auto
+                span.digit 1600
+                span.text.grey-text.mini-text Средняя сумма чека
+                .clearfix.margin-top-30
+                span.digit.big 1680
+                span.text.grey-text.mini-text.big Достигнуто с REES46
+
+              / Блок Выручка
+            .blue-block#profit.span6
+              .block-header
+                .table-cell
+                .table-cell.center
+                  span.title Выручка
+                .table-cell
+              hr
+
+              .wrap-auto
+                span.digit 3.6M
+                span.text.grey-text.mini-text Стандартная выручка
+                .clearfix.margin-top-30
+                span.digit.big 3.7М
+                span.text.grey-text.mini-text.big Достигнуто с REES46
+
+
+        / Список заказов
+        .span8.right-col
+          .blue-block#orders
+            .block-header
+              .table-cell
+              .table-cell.center
+                span.title Список заказов за &nbsp;
+                span.uppercase.blue  23 апреля
+              .table-cell
+                div class="dropdown"
+                  button class="btn btn-default dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" Все заказы
+                  span class="caret"
+                  ul class="dropdown-menu" role="menu" aria-labelledby="dropdownMenu1"
+                    li role="presentation"
+                      a role="menuitem" tabindex="-1" href="javascript: void(0);" Все заказы
+                      /a role="menuitem" tabindex="-1" href="javascript: void(0);" id="show-today-orders" За Сегодня
+                      a href="javascript: void(0);"
+                        input#date-mask role="menuitem" tabindex="-1" data-inputmask="'alias': 'date'" class="focus.inputmask roboto"
+
+            hr
+
+            table.table
+              col width="19%"
+              col width="13%"
+              col width="24%"
+              col width="23%"
+
+              thead.grey-text.mini-text
+                tr
+                  th ID заказа
+                  th Время
+                  th ID Пользователя
+                  th Обычных
+                  th Рекомендованных
+              tbody
+                tr
+                  td 098089889
+                  td 13:48
+                  td 829342738
+                  td 864.56 руб.
+                  td 9765.38 руб.
+                tr
+
+  footer
+
+
+

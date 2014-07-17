@@ -1,0 +1,490 @@
+//body
+//  background: image-url('rees-215.png') -164px 0px
+//#wrap-all
+//  opacity: 0.6
+
+
+// VARS
+$grey: #9C9C9C
+$grey2: #6C757A
+$body-color: #0E181E
+$blue-background: #203541
+$blue: #00AEEF
+
+@mixin radius($str)
+  border-radius: $str
+  -moz-border-radius: $str
+  -webkit-border-radius: $str
+  -khtml-border-radius: $str
+
+@mixin round($str)
+  width: $str
+  height: $str
+  +radius(50%)
+@mixin roboto
+  font-family: 'Roboto', sans-serif
+
+@mixin roboto-light
+  font-family: 'Roboto', sans-serif
+  font-weight: 300
+
+$i: 0
+$end: 100
+$step: 5
+
+@while $i <= $end
+  .margin-top-#{$i}
+    margin-top: #{$i}px
+
+  .margin-right-#{$i}
+    margin-right: #{$i}px
+
+  .margin-bottom-#{$i}
+    margin-bottom: #{$i}px
+
+  .margin-left-#{$i}
+    margin-left: #{$i}px
+
+  .padding-top-#{$i}
+    padding-top: #{$i}px
+
+  .padding-right-#{$i}
+    padding-right: #{$i}px
+
+  .padding-bottom-#{$i}
+    padding-bottom: #{$i}px
+
+  .padding-left-#{$i}
+    padding-left: #{$i}px
+
+  $i: $i + $step
+// END VARS
+
+
+// GLOBAL
+@import url(http://fonts.googleapis.com/css?family=Roboto:400,300,700&subset=latin,cyrillic-ext)
+.roboto
+  font-family: 'Roboto', sans-serif
+
+#wrap-all
+  width: 100%
+  min-width: 100%
+  display: inline-table
+
+
+body
+  background-color: $body-color
+
+p, div, span, td
+  color: white
+
+div
+  box-sizing: border-box
+
+
+.container
+  //padding: 0px 85px
+  box-sizing: border-box
+  height: 500px
+
+.grey-text
+  color: #9C9C9C
+
+.mini-text
+  font-size: 9px
+  line-height: 11px
+.bigger-font
+  font-size: 47px
+  +roboto-light
+// END GLOBAL
+
+
+// HEADER
+header
+  #navbar
+    background-color: #0A1216
+    height: 60px
+    margin-bottom: 80px
+
+  .right-bar
+    padding-top: 20px
+    span
+      font-size: 12px
+      margin-left: 20px
+      &:last-child
+        margin-right: 22px
+    .config
+      margin-right: 5px
+      background: image-url('icons/config.png') no-repeat 0px
+      padding: 12px
+  #logo
+    width: 100px
+    height: 40px
+    margin-top: 15px
+    background: image-url('icons/logo.png') no-repeat
+
+
+// MAIN CONTENT
+.blue-block
+  background-color: $blue-background
+  padding: 20px
+  padding-top: 11px
+  span.title
+    text-transform: uppercase
+  .dropdown
+    text-align: right
+    float: right
+    margin-top: 9px
+    &.fix-open
+      .dropdown-menu
+        display: block
+
+    .dropdown-toggle
+      background: transparent
+      border: none
+      box-shadow: none
+      text-shadow: none
+      color: white
+      font-size: 11px
+      text-transform: uppercase
+      height: 22px
+      line-height: 14px
+      &:focus
+        outline: none
+      +roboto
+    .caret
+      margin-left: -3px
+      margin-right: 3px
+
+      border-top: 5px solid white
+      border-right: 5px solid transparent
+      border-left: 5px solid transparent
+    .dropdown-menu
+      left: auto
+      right: 2px
+      background: #28404E
+      border: none
+      box-shadow: 1px 1px 6px 2px rgba(0, 0, 0, 0.3)
+
+      li, li:hover
+        background: transparent
+        a
+          outline: none
+          text-transform: uppercase
+          font-size: 11px
+          color: #ccc
+          padding: 0px 20px
+          +roboto
+        a:focus, a:hover
+          color: #fff
+          background-image: none
+          background: transparent
+          outline: none
+        input
+          font-size: 11px
+          text-align: right
+          width: 140px
+          margin-bottom: 10px
+          background: #3B5C6F
+          //box-shadow: inset 0px 1px 6px 0px rgba(0, 0, 0, 0.56)
+          outline: none
+          border: 1px solid #243742
+          color: #CCC
+          padding-right: 5px
+          &:hover
+            color: #fff
+
+
+.block-header
+  display: table
+  width: 100%
+  height: 40px
+
+  margin-bottom: 9px
+
+  .table-cell
+    display: table-cell
+    width: 15%
+    &.center
+      width: 70%
+      text-align: center
+      font-size: 11px
+      font-weight: bold
+      vertical-align: middle
+
+hr
+  border: 0
+  border-top: 1px solid #273F4D
+  border-bottom: 1px solid #1B2833
+  margin: 0px
+
+
+#graphics-container
+  min-height: 320px
+  padding: 20px
+  padding-bottom: 15px
+  .span4
+    width: 325px
+  .span8
+    margin-left: 0px
+    padding-left: 38px
+  .diagrams
+    margin-top: 38px
+    > div
+      width: 100px
+      height: 100px
+      float: left
+      margin-right: 10px
+      &:last-child
+        margin-right: 0px
+
+  #effect
+    .table-cell
+      display: table-cell
+      width: 30%
+      &.center
+        width: 40%
+#sales
+  .grey-text
+    width: 244px
+
+.navy-block
+  height: 40px
+  background-color: #182933
+  padding: 7px 20px
+
+  span
+    position: relative
+    margin-right: 68px
+    &:first-child
+      padding-left: 15px
+
+    &:before
+      content: ''
+      position: absolute
+      top: 1px
+      width: 9px
+      height: 9px
+      border: 1px solid $grey
+      z-index: 10
+    &.one:before
+      right: 87px
+      background-color: #254559
+    &.two:before
+      right: 133px
+      background-color: $blue
+    &.three:before
+      right: 87px
+      background-color: #fff
+
+#main-content
+  .left-col
+    width: 360px
+    .blue-block
+      margin-bottom: 10px
+
+#a-b-test
+  min-height: 200px
+  .table-cell
+    display: table-cell
+    width: 40%
+    &.center
+      width: 20%
+
+  #spent-time
+    padding: 53px 6px 20px 6px
+    .days
+      margin-right: 15px
+
+  #with-swither
+    margin-top: 15px
+    width: 83px
+    text-align: center
+
+    #back
+      background-color: $body-color
+      height: 40px
+      width: 20px
+      margin: 10px 11px
+      margin-left: 31px
+      position: relative
+      +radius(10px)
+      cursor: pointer
+    #round
+      +round(20px)
+      background-color: $blue
+      box-shadow: 0px 0px 15px 2px $blue
+      position: absolute
+      top: 0px
+      &.off
+        top: 20px
+
+    .active
+      color: #fff
+
+#conversion, #profit, #average
+  min-height: 230px
+  .wrap-auto
+    min-width: 327px
+    padding: 20px
+    padding-top: 24px
+    .digit
+      font-size: 23px
+      color: $grey2
+      position: relative
+      margin-right: 39px
+      +roboto
+      font-weight: bold
+      &:after
+        content: "%"
+        position: absolute
+        right: -30px
+        +round(18px)
+        z-index: 10
+        background-color: $grey2
+        font-size: 12px
+        text-align: center
+        color: $blue-background
+        top: 6px
+        line-height: 18px
+        +roboto
+        font-weight: bold
+
+      &.big
+        font-size: 58px
+        margin-right: 70px
+        float: left
+        color: #fff
+        +roboto-light
+        line-height: 14px
+        &:after
+          top: -12px
+          right: -61px
+          +round(42px)
+          font-size: 33px
+          line-height: 42px
+          background-color: $blue
+
+    .text
+      display: inline-block
+      width: 62px
+      margin-top: 1px
+      line-height: 10px
+      +roboto
+
+      &.big
+        font-size: 14px
+        width: 78px
+        margin-top: -7px
+        line-height: 17px
+        text-transform: uppercase
+        color: $blue
+
+#profit, #average
+  .wrap
+    .digit
+      &:after
+        content: "руб"
+        font-size: 7px
+      &.big
+        &:after
+          font-size: 19px
+          line-height: 40px
+
+#main-content
+  .right-col
+    width: 630px
+    margin-left: 10px
+
+    #orders
+      .table-cell
+        display: table-cell
+        width: 30%
+        &.center
+          width: 40%
+
+    .table
+      margin-bottom: 0px
+      border-collapse: initial
+      border-spacing: 0px 1px
+      thead tr
+        background-color: transparent !important
+      th
+        padding-top: 6px
+        vertical-align: top
+        +roboto
+        opacity: 0.7
+        &:first-child
+          padding-left: 14px
+
+      td
+        font-size: 13px
+        padding: 0px 3px 0px 8px
+        line-height: 20px
+      tbody tr
+        height: 18px
+        td
+          border-top: none
+
+      tr:nth-child(odd)
+        background-color: #28404E
+
+.uppercase
+  text-transform: uppercase
+.blue
+  color: $blue
+
+#graphik_blue
+  width: 563px
+  height: 243px
+  margin-left: 26px
+
+.tickLabel
+  font-size: 9px
+  width: 45px
+  height: 40px
+  line-height: 53px
+  opacity: 0
+  +roboto
+  &.today
+    height: 229px
+    display: table
+    background-color: rgba(14, 24, 30, 0.53)
+    &:hover
+      background-color: #000
+    span
+      color: #2FD5FF
+      display: table-cell
+      vertical-align: bottom
+      line-height: 30px
+
+.tickLabels
+  position: absolute
+  left: 8px
+
+canvas.base
+  position: absolute
+  z-index: 10
+#day, #week, #month
+  position: relative
+  &:before
+    position: absolute
+    top: 30px
+    left: 24px
+    width: 50px
+    height: 50px
+    z-index: 10
+    text-transform: uppercase
+    font-size: 12px
+    text-align: center
+    line-height: 17px
+#day:before
+  content: 'За день'
+
+#week:before
+  content: 'За неделю'
+
+#month:before
+  content: 'За месяц'
+
+

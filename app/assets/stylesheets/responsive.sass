@@ -1,0 +1,61 @@
+@media (min-width: 1000px)
+  .container
+    width: 1000px
+  .left-col .blue-block
+    width: 360px
+    margin-left: 0px
+    float: none
+
+@media (max-width: 1000px)
+  #graphics-container
+    #sales
+      width: 100%
+
+    .diagrams
+      text-align: center
+      width: 100%
+      > div
+        float: none
+        display: inline-block
+        margin-right: 10px
+        text-align: left
+
+    #sales
+      .grey-text
+        width: 100%
+        text-align: center
+    #effect
+      width: 100%
+      margin-top: 40px
+      padding-left: 0px
+
+      #graphik_blue
+        margin: 0 auto
+  .navy-block
+    text-align: center
+    span:last-child
+      margin-right: 0px
+
+  #main-content
+    .left-col
+      width: 100%
+      .blue-block
+        float: left
+        min-height: 230px
+        &:nth-child(odd)
+          margin-left: 0px
+    .wrap-auto
+      margin: 0 auto
+      display: table
+
+    .right-col
+      width: 100%
+      margin-left: 0px
+      margin-top: 30px
+
+@media (max-width: 767px)
+  .row-fluid [class*="span"]#spent-time
+    width: 210px
+  .row-fluid [class*="span"]#spent-time,
+  .row-fluid [class*="span"]#with-swither
+    float: left
