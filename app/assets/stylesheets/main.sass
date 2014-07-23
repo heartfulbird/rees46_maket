@@ -20,7 +20,9 @@ $blue: #00AEEF
 @mixin round($str)
   width: $str
   height: $str
-  +radius(50%)
+  //+radius(50%)
+  +radius(100px)
+
 @mixin roboto
   font-family: 'Roboto', sans-serif
 
@@ -70,6 +72,7 @@ $step: 5
   width: 100%
   min-width: 100%
   display: inline-table
+  padding-bottom: 40px
 
 
 body
@@ -143,12 +146,14 @@ header
       background: transparent
       border: none
       box-shadow: none
+      -moz-box-shadow: none
+      -webkit-box-shadow: none
       text-shadow: none
       color: white
       font-size: 11px
       text-transform: uppercase
-      height: 22px
-      line-height: 14px
+      height: 18px
+      line-height: 4px
       &:focus
         outline: none
       +roboto
@@ -282,6 +287,9 @@ hr
     width: 360px
     .blue-block
       margin-bottom: 10px
+      &:last-child
+        margin-bottom: 0px
+
 
 #a-b-test
   min-height: 200px
@@ -314,6 +322,8 @@ hr
       +round(20px)
       background-color: $blue
       box-shadow: 0px 0px 15px 2px $blue
+      -webkit-box-shadow: 0px 0px 15px 2px #00aeef
+      -moz-box-shadow: 0px 0px 15px 2px #00aeef
       position: absolute
       top: 0px
       &.off
@@ -381,7 +391,7 @@ hr
         color: $blue
 
 #profit, #average
-  .wrap
+  .wrap-auto
     .digit
       &:after
         content: "руб"
@@ -438,6 +448,8 @@ hr
   width: 563px
   height: 243px
   margin-left: 26px
+  .legend
+    display: none
 
 .tickLabel
   font-size: 9px

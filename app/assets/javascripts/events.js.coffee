@@ -60,6 +60,10 @@ $ ->
   # Drop Down с инпутом для даты
   $('#orders .dropdown').on 'click', ->
     $(@).addClass('fix-open')
+
+
+
+
   $('body').on 'click', (e) ->
     if (!$(e.target).hasClass('.dropdown-menu') && $(e.target).closest('.dropdown-menu').length == 0)
       $('.dropdown').removeClass('fix-open')
@@ -67,3 +71,6 @@ $ ->
   # Заполним табличку
   for [0..18]
     $('.right-col tbody').append('<tr><td>098089889</td><td>13:48</td><td>829342738</td><td>864.56 руб.</td><td>9765.38 руб.</td></tr><tr></tr>')
+
+  if ($('.left-col').height() > $('.right-col').height())
+    $('.right-col  .blue-block').css('height', $('.left-col').height() + 'px')

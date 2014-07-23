@@ -108,6 +108,8 @@ var Charts = function () {
 }();
 
 function xAxisLabelGenerator(x) {
-  return moment(new Date(x)).lang("ru").format('DD MMM');
+    var day = moment(new Date(x)).lang("ru").format('DD MMM');
+    day = day.split(' ')
+    return day[0] + ' ' + day[1].substr(0,3)
 }
 

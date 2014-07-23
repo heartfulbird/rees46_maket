@@ -19,6 +19,23 @@ $(function () {
     nextDay: function (start, i, hours){
       return (new Date(moment(start).add('days', i).add('hours', hours).add('minutes', 20)).getTime());
     },
+      showTooltip: function(x, y, contents) {
+          $('<div id="tooltip">' + contents + '</div>').css({
+              position: 'absolute',
+              display: 'none',
+              top: y + 5,
+              left: x + 20,
+              border: '2px solid #fff',
+              padding: '2px',
+              size: '10',
+              'background-color': back,
+
+    //            opacity: 0.80,
+              color: '#fff',
+              'z-index': 100,
+              padding: '5px 10px',
+          }).appendTo("body").fadeIn(200);
+      },
 
     buildDiagram: function (type, date) {
       // Нужны точки за 2 недели где выбранная дата где то посередине
@@ -42,10 +59,10 @@ $(function () {
 
       if (type == 'onLoad'|| type == 'prev2week') {
         start = moment().subtract('days', 13).format('LL');
-        end = moment().format('LL');
+        end =  moment(start).add('days', 14).format('LL');
       } else {
         start = moment(date).subtract('days', 7).format('LL');
-        end = moment(date).add('days', 7).format('LL');
+        end = moment(start).add('days', 14).format('LL');
       }
 
       console.log(type)
@@ -62,8 +79,8 @@ $(function () {
       }
 
 
-      Rees.data.push({ label: false, data: values_norm, points: { show: true }, lines: { lineWidth: 0, fill: false } });
-      Rees.data.push({ label: false, data: values_rees, points: { show: true }, lines: { lineWidth: 0, fill: false } });
+      Rees.data.push({ label: 'norm', data: values_norm, points: { show: true }, lines: { lineWidth: 0, fill: false } });
+      Rees.data.push({ label: 'rees', data: values_rees, points: { show: true }, lines: { lineWidth: 0, fill: false } });
 
 
       // Крайние точки
@@ -85,10 +102,12 @@ $(function () {
 
       if (type != 'onLoad'){
         setTimeout(function () {
-          var this_day = moment(date).lang("ru").format('DD MMM');
+            var day = moment(date).lang("ru").format('DD MMM');
 
-          console.log(this_day)
-          $(".tickLabel:contains('"+ this_day +"')").css({ top: '10px'}).addClass('today').html('<span>'+ this_day +'</span>');
+            day = day.split(' ')
+            var this_day = day[0] + ' ' + day[1].substr(0,3)
+
+            $(".tickLabel:contains('"+ this_day +"')").css({ top: '10px'}).addClass('today').html('<span>'+ this_day +'</span>');
 
         }, 100);
       }
@@ -175,6 +194,120 @@ $(function () {
 
   Rees.buildDiagram('onLoad', null);
   Rees.buildPie();
+
+    var  previousPoint = null;
+    var  itemX = null;
+    var back = null;
+
+    $("#graphik_blue").bind("plothover", function (event, pos, item) {
+
+        if (item) {
+            if (previousPoint != item.dataIndex) {
+                previousPoint = item.dataIndex;
+                itemX = item.pageX;
+
+                $("#tooltip").remove();
+
+                if (item.series.label == 'norm') {
+                    back = '#254559'
+                } else {
+                    back = '#00AEEF'
+                }
+                Rees.showTooltip(item.pageX, item.pageY,  item.series.data[item.dataIndex][1], back);
+            }
+        } else {
+            if (itemX) {
+                if (Math.abs(itemX - pos.pageX) > 3) {
+                    $("#tooltip").remove();
+                    previousPoint = null;
+                }
+            }
+        }
+    });
+
+    $("#day").bind("plothover", function (event, pos, item) {
+        if (item) {
+            if (previousPoint != item.seriesIndex) {
+                previousPoint = item.seriesIndex;
+                itemX = pos.pageX;
+                itemY = pos.pageY;
+
+                $("#tooltip").remove();
+
+                back = '#254559'
+
+//                if (item.series.label == 'norm') {
+//                    back = '#254559'
+//                } else {
+//                    back = '#00AEEF'
+//                }
+                Rees.showTooltip(pos.pageX, pos.pageY,  item.series.data[0][1], back);
+            }
+        } else {
+            if (itemX) {
+                if ( (Math.abs(itemX - pos.pageX) > 5) || (Math.abs(itemY - pos.pageY) > 5) ) {
+                    $("#tooltip").remove();
+                    previousPoint = null;
+                }
+            }
+        }
+    });
+
+    $("#week").bind("plothover", function (event, pos, item) {
+        if (item) {
+            if (previousPoint != item.seriesIndex) {
+                previousPoint = item.seriesIndex;
+                itemX = pos.pageX;
+                itemY = pos.pageY;
+
+                $("#tooltip").remove();
+
+                back = '#254559'
+
+//                if (item.series.label == 'norm') {
+//                    back = '#254559'
+//                } else {
+//                    back = '#00AEEF'
+//                }
+                Rees.showTooltip(pos.pageX, pos.pageY,  item.series.data[0][1], back);
+            }
+        } else {
+            if (itemX) {
+                if ( (Math.abs(itemX - pos.pageX) > 5) || (Math.abs(itemY - pos.pageY) > 5) ) {
+                    $("#tooltip").remove();
+                    previousPoint = null;
+                }
+            }
+        }
+    });
+
+    $("#month").bind("plothover", function (event, pos, item) {
+        if (item) {
+            if (previousPoint != item.seriesIndex) {
+                previousPoint = item.seriesIndex;
+                itemX = pos.pageX;
+                itemY = pos.pageY;
+
+                $("#tooltip").remove();
+
+                back = '#254559'
+
+//                if (item.series.label == 'norm') {
+//                    back = '#254559'
+//                } else {
+//                    back = '#00AEEF'
+//                }
+                Rees.showTooltip(pos.pageX, pos.pageY,  item.series.data[0][1], back);
+            }
+        } else {
+            if (itemX) {
+                if ( (Math.abs(itemX - pos.pageX) > 5) || (Math.abs(itemY - pos.pageY) > 5) ) {
+                    $("#tooltip").remove();
+                    previousPoint = null;
+                }
+            }
+        }
+    });
 
 
 });
